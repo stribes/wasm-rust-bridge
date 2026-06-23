@@ -37,7 +37,7 @@ Verify:
 
 # Create the Rust Library
 
-cargo new package_name --lib
+`cargo new package_name --lib`
 
 ## Cargo.toml
 
