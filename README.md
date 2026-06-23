@@ -34,3 +34,33 @@ Install:
 
 Verify:
 `wasm-pack --version`
+
+# Create the Rust Library
+
+cargo new package_name --lib
+
+## Cargo.toml
+
+```toml
+[package]
+name = "package_name"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2"
+```
+
+## src/lib.rs
+
+```rust
+use wasm_bindgen::prelude::*;
+
+#[wasm_bindgen]
+pub fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+```
