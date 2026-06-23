@@ -64,3 +64,33 @@ pub fn add(a: i32, b: i32) -> i32 {
     a + b
 }
 ```
+
+## Build for Node.js
+
+`cd rust`
+`wasm-pack build --target nodejs`
+
+This generates:
+```
+pkg/
+- package.json
+- package_name.js
+- package_name.d.ts
+- package_name_bg.wasm
+- package_name_bg.wasm.d.ts
+```
+
+## Calling in Node.js
+
+Create index.js:
+```js
+const { add } = require("./pkg");
+
+console.log(add(2, 3));
+````
+
+Run:
+`node index.js`
+
+Expected output:
+`5`
